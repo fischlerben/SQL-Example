@@ -231,3 +231,23 @@ SELECT movie.movie_name, movie.movie_budget
 FROM movie
 ORDER BY movie_budget DESC
 LIMIT 5;
+
+---Query the distinct names of directors (do not show duplicates) and order in ascending order by last name---
+SELECT DISTINCT director_first_name, director_last_name
+FROM director
+ORDER BY director_last_name ASC;
+
+---Calculate average of movie_budget column---
+SELECT AVG(movie_budget)
+FROM movie;
+
+---Calculate how many of each 'movie_genre' appears---
+SELECT movie_genre, COUNT(movie_genre)
+FROM movie
+GROUP BY movie_genre
+ORDER BY COUNT(movie_genre) DESC;
+
+---Query all types of'comedy' genres---
+SELECT movie_name, movie_genre
+FROM movie
+WHERE movie_genre LIKE '%edy%';
