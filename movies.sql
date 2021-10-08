@@ -220,8 +220,6 @@ WHERE movie_id = 20;
 
 ----------Querying for Specific Pieces of Information----------
 
-SELECT * FROM movie;
-
 ---Query movies that came out in the year 2000 or later---
 SELECT * FROM MOVIE
 WHERE movie.movie_year >= 2000;
@@ -251,3 +249,18 @@ ORDER BY COUNT(movie_genre) DESC;
 SELECT movie_name, movie_genre
 FROM movie
 WHERE movie_genre LIKE '%edy%';
+
+---Query names of all movies and all director last names at once---
+SELECT movie_name AS movies_and_directors FROM movie
+UNION
+SELECT director_last_name FROM director;
+
+---Query names of all movies with name of its respective director---
+SELECT movie.movie_name, director.director_first_name, director.director_last_name
+FROM movie
+JOIN director
+ON movie.movie_director = director.director_id
+ORDER BY movie_name;
+
+SELECT * FROM movie;
+SELECT * FROM director;
