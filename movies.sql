@@ -255,12 +255,22 @@ SELECT movie_name AS movies_and_directors FROM movie
 UNION
 SELECT director_last_name FROM director;
 
----Query names of all movies with name of its respective director---
+---Query names of all movies with name of its respective director where movie budget was >= $50MM---
 SELECT movie.movie_name, director.director_first_name, director.director_last_name
 FROM movie
 JOIN director
 ON movie.movie_director = director.director_id
+WHERE movie.movie_budget >= 50000000
 ORDER BY movie_name;
+
+---Query names of all directors who had movie budgets $50MM and greater---
+SELECT director.director_last_name
+FROM director
+WHERE director_id IN (
+    SELECT movie.movie_director
+    FROM movie
+    WHERE movie_budget >= 50000000
+);
 
 SELECT * FROM movie;
 SELECT * FROM director;
