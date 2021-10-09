@@ -26,7 +26,7 @@ Last thing that needed to be done was to update the 'movie' table with the forei
 
 ---
 
-## Querying for Specific Pieces of Information (more in ReadMe):
+## Querying for Specific Pieces of Information (more in 'movies.sql' file):
 
 ### Query top 5 movies by budget, and list in descending order
 SELECT movie.movie_name, movie.movie_budget  
