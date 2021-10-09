@@ -29,53 +29,53 @@ Last thing that needed to be done was to update the 'movie' table with the forei
 ## Querying for Specific Pieces of Information (more in ReadMe):
 
 ### Query top 5 movies by budget, and list in descending order
-SELECT movie.movie_name, movie.movie_budget
-FROM movie
-ORDER BY movie_budget DESC
-LIMIT 5;
+SELECT movie.movie_name, movie.movie_budget  
+FROM movie  
+ORDER BY movie_budget DESC  
+LIMIT 5;  
 
 ![top_5_by_budget](/Screenshots/top_5_by_budget.png?raw=true)
 
 ---
 
 ### Calculate how many of each 'movie_genre' appears
-SELECT movie_genre, COUNT(movie_genre)
-FROM movie
-GROUP BY movie_genre
-ORDER BY COUNT(movie_genre) DESC;
+SELECT movie_genre, COUNT(movie_genre)  
+FROM movie  
+GROUP BY movie_genre  
+ORDER BY COUNT(movie_genre) DESC;  
 
 ![movie_genre_count](/Screenshots/movie_genre_count.png?raw=true)
 
 ---
 
 ### Query all types of 'comedy' genres
-SELECT movie_name, movie_genre
-FROM movie
-WHERE movie_genre LIKE '%edy%';
+SELECT movie_name, movie_genre  
+FROM movie  
+WHERE movie_genre LIKE '%edy%';  
 
 ![comedy_genres](/Screenshots/comedy_genres.png?raw=true)
 
 ---
 
 ### Query names of all movies with name of its respective director where movie budget was >= $50MM
-SELECT movie.movie_name, director.director_first_name, director.director_last_name
-FROM movie
-JOIN director
-ON movie.movie_director = director.director_id
-WHERE movie.movie_budget >= 50000000
-ORDER BY movie_name;
+SELECT movie.movie_name, director.director_first_name, director.director_last_name  
+FROM movie  
+JOIN director  
+ON movie.movie_director = director.director_id  
+WHERE movie.movie_budget >= 50000000  
+ORDER BY movie_name;  
 
 ![movies_and_directors](/Screenshots/movies_and_directors.png?raw=true)
 
 ---
 
 ### Query names of all directors who had movie budgets $50MM and greater
-SELECT director.director_last_name
-FROM director
-WHERE director_id IN (
-    SELECT movie.movie_director
-    FROM movie
-    WHERE movie_budget >= 50000000
+SELECT director.director_last_name  
+FROM director  
+WHERE director_id IN (  
+    SELECT movie.movie_director  
+    FROM movie  
+    WHERE movie_budget >= 50000000  
 );
 
 ![directors_fifty](/Screenshots/directors_fifty.png?raw=true)
