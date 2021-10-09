@@ -245,7 +245,7 @@ FROM movie
 GROUP BY movie_genre
 ORDER BY COUNT(movie_genre) DESC;
 
----Query all types of'comedy' genres---
+---Query all types of 'comedy' genres---
 SELECT movie_name, movie_genre
 FROM movie
 WHERE movie_genre LIKE '%edy%';
@@ -271,6 +271,3 @@ WHERE director_id IN (
     FROM movie
     WHERE movie_budget >= 50000000
 );
-
-SELECT * FROM movie;
-SELECT * FROM director;
