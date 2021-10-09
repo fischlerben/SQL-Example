@@ -73,9 +73,9 @@ ORDER BY movie_name;
 SELECT director.director_last_name  
 FROM director  
 WHERE director_id IN (  
-    SELECT movie.movie_director  
-    FROM movie  
-    WHERE movie_budget >= 50000000  
+&nbsp;&nbsp;&nbsp;&nbsp;SELECT movie.movie_director  
+&nbsp;&nbsp;&nbsp;&nbsp;FROM movie  
+&nbsp;&nbsp;&nbsp;&nbsp;WHERE movie_budget >= 50000000  
 );
 
 ![directors_fifty](/Screenshots/directors_fifty.png?raw=true)
